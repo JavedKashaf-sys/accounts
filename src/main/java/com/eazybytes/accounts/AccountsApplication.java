@@ -39,6 +39,8 @@ import io.swagger.v3.oas.annotations.info.Info;
 public class AccountsApplication {
 
 	public static void main(String[] args) {
+		System.out.print("Hi I have been added the Logs");
+		System.out.print("===========================-----------------------------------------================");
 		SpringApplication.run(AccountsApplication.class, args);
 	}
 
