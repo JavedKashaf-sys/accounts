@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  cards:
+    image: docker.io/javed0772720367/cards:s4
+    container_name: cards-service
+    ports:
+      - "9092:9092"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: "900M"
+        reservations:
+          cpus: "0.25"
+          memory: "900M"
+    networks:
+      - app-network
+
+  accounts:
+    image: docker.io/javed0772720367/accounts:s4
+    container_name: accounts-service
+    ports:
+      - "9091:9091"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: "900M"
+        reservations:
+          cpus: "0.25"
+          memory: "900M"
+    networks:
+      - app-network
+
+  loan:
+    image: docker.io/javed0772720367/loans:s4
+    container_name: loan-service
+    ports:
+      - "9093:9093"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: "900M"
+        reservations:
+          cpus: "0.25"
+          memory: "900M"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
